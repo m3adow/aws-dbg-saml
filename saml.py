@@ -49,9 +49,9 @@ def auth_live():
         return None
 
     try:
-        r1j['callbacks'][0]['input'][0]['value'] = raw_input('Username: ')     # should locate 'IDToken1'
-        r1j['callbacks'][1]['input'][0]['value'] = raw_input('MFA token: ')      # should locate 'IDToken2'
-        r1j['callbacks'][2]['input'][0]['value'] = getpass.getpass('Password: ')   # should locate 'IDToken3'
+        r1j['callbacks'][0]['input'][0]['value'] = raw_input()     # should locate 'IDToken1'
+        r1j['callbacks'][1]['input'][0]['value'] = raw_input()      # should locate 'IDToken2'
+        r1j['callbacks'][2]['input'][0]['value'] = getpass.getpass()   # should locate 'IDToken3'
         if debug:
             print json.dumps(r1j, indent=2)
     except:
@@ -224,13 +224,13 @@ for fun in [auth_cached, auth_live]:
         if diff.total_seconds() < 0:
             continue
 
-        print 'Key ID:        ' + str(aws_access_key_id[0])
-        print 'Access Key:    ' + str(aws_secret_access_key)
-        print 'Session Token: ' + str(aws_session_token)
-        print 'Expiration:    ' + str(credentials['Expiration'].replace(tzinfo=None))
-        print 'Expiration (in UTC):    ' + str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S%z'))
-        print 'Until expiration:    ' + str(diff)
-        print ''
+        # print 'Key ID:        ' + str(aws_access_key_id[0])
+        # print 'Access Key:    ' + str(aws_secret_access_key)
+        # print 'Session Token: ' + str(aws_session_token)
+        # print 'Expiration:    ' + str(credentials['Expiration'].replace(tzinfo=None))
+        # print 'Expiration (in UTC):    ' + str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S%z'))
+        # print 'Until expiration:    ' + str(diff)
+        # print ''
 
         print 'export AWS_ACCESS_KEY_ID=\'' + str(aws_access_key_id[0]) + '\' && export AWS_SECRET_ACCESS_KEY=\'' + str(aws_secret_access_key) + '\' && export AWS_SESSION_TOKEN=\'' + str(aws_session_token) + '\' && export AWS_SECURITY_TOKEN=\'' + str(aws_session_token) + '\''
 
