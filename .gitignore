@@ -1,1 +1,6 @@
-assumedRole.pkl
+**assumedRole.pkl
+venv*
+.idea/
+aws_dbg_saml.egg-info/
+build/
+dist/
